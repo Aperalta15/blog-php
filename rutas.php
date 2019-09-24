@@ -1,7 +1,7 @@
 <?php
 use phpDocumentor\Reflection\Location;
 
-// este codigo gestionara el contenido a mostrar o procesar 
+// este codigo gestionara el contenido a mostrar o procesar
 
 function cargarContenido($cnt , $acc){
 
@@ -22,19 +22,19 @@ function cargarContenido($cnt , $acc){
         } else {
 
             echo "Este metodo no existe ";
-            //header("Location: /APPREGISTRO");
-            
+            // header("Location: /blog-php");
+
         }
-        
+
 
     }else {
 
         echo "Este metodo no existe ";
-        //header("Location: /APPREGISTRO");
+        // header("Location: /blog-php");
 
     }
 
-    
+
 
 }
 

@@ -21,19 +21,18 @@
     }
 
     public function validar_ingreso(){
-
-        extract($_POST);
+        extract($_REQUEST);
         $um = new usuario_modelo();
-        $r = $um->validar_usuario($usuario, $password);
+        $r = $um->validar_usuario($correo, $password);
 
         if (is_array($r)) {
-          $_SESSION["NOMBRE"]=$r["USU_NOMBRE"];
-          $_SESSION["APELLIDO"]=$r["USU_APELLIDO"];
-          $_SESSION["ROL"]=$r["USU_ROL"];
-          $_SESSION["CORREO"]=$r["USU_CORREO"];
-          $_SESSION["PASSWORD"]=$r["USU_PASSWORD"];
-          $_SESSION["ID"]=$r["USU_ID"];
-          header("Location: /APPREGISTRO");
+          $_SESSION["NOMBRE"]=$r["usuNombre"];
+          $_SESSION["APELLIDO"]=$r["usuApellido"];
+          $_SESSION["ROL"]=$r["usuRol"];
+          $_SESSION["CORREO"]=$r["usuCorreo"];
+          $_SESSION["PASSWORD"]=$r["usuPass"];
+          $_SESSION["ID"]=$r["idUsu"];
+          header("Location: /blog-php/");
           echo json_encode(array("texto" => "Bienvenido", "estado"=>"success"));
         } else {
           echo json_encode(array("texto" => "Usuario o contrasena incorrectos", "estado"=>"danger"));
@@ -42,13 +41,13 @@
 
     public function regUsuario(){
        extract($_REQUEST);
-       if ($nombre != '' && $apellido != '' && $usuario != '' && $password != '') {
+       if ($nombre != '' && $apellido != '' && $correo != '' && $password != '') {
         $um = new usuario_modelo();
-         $r=$um->validarCorreo($usuario);
+         $r=$um->validarCorreo($correo);
          if ($r > 0 ) {
            echo json_encode(array("texto" => "Este correo ya existe", "estado"=>"warning"));
          }else{
-            $r=$um->registroUsuario($nombre,$apellido,$usuario,$password);
+            $r=$um->registroUsuario($nombre,$apellido,$correo,$password);
             if($r>0){
                 echo json_encode(array("texto" => "Usuario registrado", "estado"=>"success"));
             }else{

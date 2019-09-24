@@ -31,6 +31,15 @@ class usuario_modelo
       $datos = $s->rowCount();
       return $datos;
   }
+
+  public function registroUsuario($nombre,$apellido,$usuario,$password){
+    $i = new conexion();
+    $c = $i->getConexion();
+    $sql = "INSERT INTO user (usuNombre, usuApellido, usuCorreo, usuPass) VALUES (:nombre, :apellido, :correo, :pass)";
+    $s = $c->prepare($sql);
+    $r = $s->execute( array("nombre" => $nombre, "apellido" => $apellido, "correo" => $usuario, "pass" => sha1($password)));
+    return $r;
+  }
 }
 
 ?>

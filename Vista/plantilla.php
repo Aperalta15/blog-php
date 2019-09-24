@@ -26,7 +26,7 @@
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Blog Technology</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Registrarme</a>
+          <a class="nav-link" href="?controlador=usuario&accion=registro">Registrarme</a>
         </li>
       </ul>
     </nav>
@@ -64,7 +64,9 @@
           </div>
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <?php require_once "rutas.php"; ?>
+          <?php require_once "rutas.php";
+            var_dump($_SESSION);
+          ?>
         </main>
       </div>
     </div>
