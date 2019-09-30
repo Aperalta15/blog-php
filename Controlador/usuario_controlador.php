@@ -32,8 +32,8 @@
           $_SESSION["CORREO"]=$r["usuCorreo"];
           $_SESSION["PASSWORD"]=$r["usuPass"];
           $_SESSION["ID"]=$r["idUsu"];
-          header("Location: /blog-php/");
           echo json_encode(array("texto" => "Bienvenido", "estado"=>"success"));
+          header("Location: /blog-php/");
         } else {
           echo json_encode(array("texto" => "Usuario o contrasena incorrectos", "estado"=>"danger"));
         }
@@ -58,6 +58,11 @@
           echo json_encode(array("texto" => "Faltan datos por registrar", "estado"=>"danger"));
        }
     }
+
+    public function cerrarsesion(){
+       session_destroy();
+       header("Location: /blog-php");
+   }
   }
 
 ?>

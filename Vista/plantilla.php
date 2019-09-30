@@ -26,7 +26,11 @@
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Blog Technology</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="?controlador=usuario&accion=registro">Registrarme</a>
+          <?php if (isset($_SESSION["CORREO"])) { ?>
+            <a class="nav-link" href="?controlador=usuario&accion=cerrarsesion">Cerrar Session</a>
+          <?php }else{ ?>
+            <a class="nav-link" href="?controlador=usuario&accion=registro">Registrarme</a>
+          <?php } ?> 
         </li>
       </ul>
     </nav>
