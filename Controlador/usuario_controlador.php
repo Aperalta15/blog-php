@@ -32,8 +32,8 @@
           $_SESSION["CORREO"]=$r["usuCorreo"];
           $_SESSION["PASSWORD"]=$r["usuPass"];
           $_SESSION["ID"]=$r["idUsu"];
+          header("Location: /blog-php");
           echo json_encode(array("texto" => "Bienvenido", "estado"=>"success"));
-          header("Location: /blog-php/");
         } else {
           echo json_encode(array("texto" => "Usuario o contrasena incorrectos", "estado"=>"danger"));
         }
@@ -63,6 +63,17 @@
        session_destroy();
        header("Location: /blog-php");
    }
+
+   public function categorias(){
+     $um=new usuario_modelo();
+     $r=$um->ListadoCategoria();
+     require_once "Vista/usuario/categorias.php";
+   }
+
+
+
+
+
   }
 
 ?>

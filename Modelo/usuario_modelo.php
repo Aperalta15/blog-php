@@ -40,6 +40,20 @@ class usuario_modelo
     $r = $s->execute( array("nombre" => $nombre, "apellido" => $apellido, "correo" => $usuario, "pass" => sha1($password)));
     return $r;
   }
+
+  public function ListadoCategoria(){
+    $i = new conexion();
+    $c = $i->getConexion();
+    $sql = "SELECT * FROM categoria";
+    $s = $c->prepare($sql);
+    $s->execute();
+    $r=$s->fetchAll();
+    return $r;  
+  }
+
+
+
+
 }
 
 ?>
