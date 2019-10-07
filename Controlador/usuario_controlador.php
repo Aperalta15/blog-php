@@ -12,12 +12,12 @@
 
     public function login()
     {
-      require_once "Vista/usuario/login.php";
+      vista::cargar("usuario/login", true);
     }
 
     public function registro()
     {
-      require_once "Vista/usuario/registro.php";
+      vista::cargar("usuario/registro", true);
     }
 
     public function validar_ingreso(){
@@ -32,8 +32,9 @@
           $_SESSION["CORREO"]=$r["usuCorreo"];
           $_SESSION["PASSWORD"]=$r["usuPass"];
           $_SESSION["ID"]=$r["idUsu"];
-          header("Location: /blog-php");
+          // header("Location: /blog-php");
           echo json_encode(array("texto" => "Bienvenido", "estado"=>"success"));
+
         } else {
           echo json_encode(array("texto" => "Usuario o contrasena incorrectos", "estado"=>"danger"));
         }
@@ -67,7 +68,8 @@
    public function categorias(){
      $um=new usuario_modelo();
      $r=$um->ListadoCategoria();
-     require_once "Vista/usuario/categorias.php";
+     // require_once "Vista/usuario/categorias.php";
+     vista::cargar("usuario/categorias", true);
    }
 
 

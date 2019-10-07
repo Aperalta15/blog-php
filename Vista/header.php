@@ -68,14 +68,4 @@
           </div>
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <?php require_once "rutas.php";
-            var_dump($_SESSION);
-          ?>
-
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-      feather.replace()
-    </script>
-  </body>
-</html>
+          

@@ -21,7 +21,7 @@
         <label for="contraseña">Contraseña</label>
         <input type="password" class="form-control" name="password" id="contraseña" placeholder="Password" required>
       </div>
-      <input type="hidden" name="opcion" value="1">
+      <!-- <input type="hidden" name="opcion" value="1"> -->
       <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
   </div>

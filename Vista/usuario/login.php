@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-5">
     <h2>Iniciar session</h2>
-    <form action="?controlador=usuario&accion=validar_ingreso" method="POST" id="regUsuario">
+    <form action="?controlador=usuario&accion=validar_ingreso" method="POST" id="ingUsuario">
       <div class="form-group">
         <label for="correo">Correo</label>
         <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelp" placeholder="Ingresar correo" required>
